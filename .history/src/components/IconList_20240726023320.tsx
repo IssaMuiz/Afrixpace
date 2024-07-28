@@ -9,7 +9,12 @@ const IconList = () => {
 
   const [showComment, SetShowComment] = useState(false);
   const [newcomment, setNewcomment] = useState<string>("");
-  const [comment, setComment] = useState<any[]>([]);
+  const [comment, setComment] = useState<any[]>([
+    () => {
+      const savedComment = localStorage.getItem("comment");
+      return savedComment ? JSON.parse(savedComment) : [];
+    },
+  ]);
 
   const handleComment = () => {
     if (newcomment) {
@@ -44,8 +49,8 @@ const IconList = () => {
     }
   };
   useEffect(() => {
-    localStorage.setItem("newcomment", JSON.stringify(newcomment));
-  }, [newcomment]);
+    localStorage.setItem("data", JSON.stringify(comment));
+  }, [comment]);
   return (
     <div>
       <div className="flex gap-10 mt-2 align-center mb-3">

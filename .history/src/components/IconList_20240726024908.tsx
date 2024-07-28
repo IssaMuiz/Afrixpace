@@ -8,7 +8,10 @@ const IconList = () => {
   const [voteCount, setVoteCount] = useState(5);
 
   const [showComment, SetShowComment] = useState(false);
-  const [newcomment, setNewcomment] = useState<string>("");
+  const [newcomment, setNewcomment] = useState<any>(() => {
+    const savedComment = localStorage.getItem("newcomment");
+    return savedComment ? JSON.parse(savedComment) : [];
+  });
   const [comment, setComment] = useState<any[]>([]);
 
   const handleComment = () => {
@@ -44,7 +47,7 @@ const IconList = () => {
     }
   };
   useEffect(() => {
-    localStorage.setItem("newcomment", JSON.stringify(newcomment));
+    localStorage.setItem("data", JSON.stringify(newcomment));
   }, [newcomment]);
   return (
     <div>

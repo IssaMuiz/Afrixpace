@@ -44,8 +44,8 @@ const IconList = () => {
     }
   };
   useEffect(() => {
-    localStorage.setItem("newcomment", JSON.stringify(newcomment));
-  }, [newcomment]);
+    localStorage.setItem("data", JSON.stringify(comment));
+  }, [comment]);
   return (
     <div>
       <div className="flex gap-10 mt-2 align-center mb-3">

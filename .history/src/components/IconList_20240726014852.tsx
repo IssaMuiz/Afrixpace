@@ -1,6 +1,6 @@
 import Addcomment from "./Addcomment";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const IconList = () => {
   const [upvote, setUpvote] = useState(false);
@@ -9,7 +9,7 @@ const IconList = () => {
 
   const [showComment, SetShowComment] = useState(false);
   const [newcomment, setNewcomment] = useState<string>("");
-  const [comment, setComment] = useState<any[]>([]);
+  const [comment, setComment] = useState<string[]>([]);
 
   const handleComment = () => {
     if (newcomment) {
@@ -43,9 +43,7 @@ const IconList = () => {
       setUpvote(false);
     }
   };
-  useEffect(() => {
-    localStorage.setItem("newcomment", JSON.stringify(newcomment));
-  }, [newcomment]);
+
   return (
     <div>
       <div className="flex gap-10 mt-2 align-center mb-3">
