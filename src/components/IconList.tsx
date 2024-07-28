@@ -48,51 +48,51 @@ const IconList = () => {
   }, [newcomment]);
   return (
     <div>
-      <div className="flex gap-10 mt-2 align-center mb-3">
+      <div className="flex gap-10 mt-2 ml-5 justify-evenly align-center border-b pb-2 mb-3">
         <div
-          className={`flex bg-gray-200 ${upvote && "bg-orange-600"} ${
-            downvote && "bg-purple-600"
-          } p-1 gap-3 items-center rounded-2xl justify-center cursor-pointer`}
+          className={`flex bg-gray-200 ${upvote && "bg-green-600"} ${
+            downvote && "bg-red-600"
+          } gap-3 items-center px-1  rounded-full justify-center cursor-pointer`}
         >
           <div onClick={toggleUpvote}>
             {upvote ? (
               <svg
                 className="fill-white"
                 viewBox="0 0 24 24"
-                width="24"
+                width="20"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="m4 14h2 2v3 4c0 .553.447 1 1 1h6c.553 0 1-.447 1-1v-5-2h1 3c.385 0 .734-.221.901-.566.166-.347.12-.758-.12-1.059l-8-10c-.381-.475-1.181-.475-1.562 0l-8 10c-.24.301-.286.712-.12 1.059.167.345.516.566.901.566z" />
               </svg>
             ) : (
               <svg
-                className="hover:fill-orange-500"
+                className="hover:fill-green-500"
                 viewBox="0 0 24 24"
-                width="24"
+                width="20"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="m12.781 2.375c-.381-.475-1.181-.475-1.562 0l-8 10c-.24.301-.286.712-.12 1.059.167.345.516.566.901.566h2 2v3 4c0 .553.447 1 1 1h6c.553 0 1-.447 1-1v-5-2h2 2c.385 0 .734-.221.901-.566.166-.347.12-.758-.12-1.059zm2.219 9.625h-1v1 3 4h-4v-3-4-1h-1-2.919l5.919-7.399 5.919 7.399z" />
               </svg>
             )}
           </div>
-          <p className="font-bold text-sm">{voteCount}</p>
+          <p className="font-bold text-black  text-sm">{voteCount}</p>
           <div onClick={toggleDownvote}>
             {downvote ? (
               <svg
                 className="fill-white"
                 height="24"
                 viewBox="0 0 24 24"
-                width="24"
+                width="20"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="m20.901 10.566c-.167-.345-.516-.566-.901-.566h-2-2v-3-4c0-.553-.447-1-1-1h-6c-.553 0-1 .447-1 1v5 2h-1-3c-.385 0-.734.221-.901.566-.166.347-.12.758.12 1.059l8 10c.19.237.477.375.781.375s.591-.138.781-.375l8-10c.24-.301.286-.712.12-1.059z" />
               </svg>
             ) : (
               <svg
-                className="hover:fill-blue-600"
+                className="hover:fill-red-600"
                 height="24"
                 viewBox="0 0 24 24"
-                width="24"
+                width="20"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="m20.901 10.566c-.167-.345-.516-.566-.901-.566h-2-2v-3-4c0-.553-.447-1-1-1h-6c-.553 0-1 .447-1 1v5 2h-2-2c-.385 0-.734.221-.901.566-.166.347-.12.758.12 1.059l8 10c.19.237.477.375.781.375s.591-.138.781-.375l8-10c.24-.301.286-.712.12-1.059zm-8.901 8.833-5.919-7.399h2.919 1v-1-3-4h4v3 4 1h1 2.919z" />
@@ -102,7 +102,7 @@ const IconList = () => {
         </div>
         <div
           onClick={handleshowComment}
-          className="bg-gray-200 rounded-2xl p-2 flex items-center gap-1 hover:bg-gray-300 cursor-pointer"
+          className="bg-gray-200 rounded-full p-2 flex items-center gap-1 hover:bg-gray-300 last: cursor-pointer"
         >
           <svg
             fill="none"
@@ -115,9 +115,9 @@ const IconList = () => {
               fill="#09090b"
             />
           </svg>
-          <p className="text-sm font-bold">{comment.length}</p>
+          <p className="text-sm text-black font-bold">{comment.length}</p>
         </div>
-        <div className="bg-gray-200 flex p-2 rounded-2xl gap-1 hover:bg-gray-300 cursor-pointer">
+        <div className="bg-gray-200 flex p-2 rounded-full gap-1 hover:bg-gray-300 cursor-pointer">
           <svg
             className="share h-6 w-6"
             viewBox="0 0 20 20"
@@ -128,7 +128,7 @@ const IconList = () => {
               fill="#212121"
             />
           </svg>
-          <p className="text-sm font-bold">Share</p>
+          <p className="text-sm text-black font-bold">Share</p>
         </div>
       </div>
       <div>

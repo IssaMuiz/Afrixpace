@@ -19,11 +19,11 @@ const Feed = () => {
   const currentDate = date.toLocaleDateString("en-US", option);
 
   return (
-    <div className="mt-32 max-w-[900px] tablet:mr-[320px] mx-auto desktop:ml-[300px]  tablet:ml-[30px]  flex flex-1 flex-col">
+    <div className="mt-32 max-w-[900px]  tablet:mr-[320px]  desktop:ml-[300px]  tablet:ml-[30px] flex flex-1 flex-col mx-5">
       {Feeds.map((feed) => (
-        <div key={feed.id}>
-          <hr />
-          <div className=" w-full hover:bg-gray-100 hover:rounded-lg cursor-pointer p-2 mt-2">
+        <div className="mb-1" key={feed.id}>
+          <hr className="mb-5" />
+          <div className=" w-full cursor-pointer rounded-lg bg-[#313131]  text-white p-2 mt-2">
             <div className=" flex items-center gap-2 pt-1">
               <div className="pt-2 mt-2">
                 <img
@@ -48,9 +48,9 @@ const Feed = () => {
             <div>
               <img className="w-full rounded-lg" src={feed.image} alt="" />
             </div>
-          </div>
-          <div>
-            <IconList />
+            <div className="">
+              <IconList />
+            </div>
           </div>
         </div>
       ))}

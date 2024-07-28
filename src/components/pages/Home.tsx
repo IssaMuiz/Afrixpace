@@ -14,7 +14,10 @@ const Home = () => {
 
   return (
     <div className="h-[2000px]">
-      <Navbar toggleDisplaynav={toggleDisplaynav} />
+      <Navbar
+        toggleDisplaynav={toggleDisplaynav}
+        displaySidenav={displaySidenav}
+      />
       <div className="flex">
         <LeftSidebar displaySidenav={displaySidenav} />
         <Feed />

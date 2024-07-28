@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 type sideNavtype = {
   toggleDisplaynav: any;
+  displaySidenav: any;
 };
 const Navbar = (props: sideNavtype) => {
   const [user] = useAuthState(auth);
@@ -18,10 +19,12 @@ const Navbar = (props: sideNavtype) => {
     navigate("/sign-up");
   };
   return (
-    <div className="left-navbar bg-black flex justify-between fixed top-0 left-0 right-0 h-16 items-center z-10">
+    <div className="left-navbar bg-[#080808] backdrop-blur-lg bg-opacity-30 flex justify-between fixed top-0 left-0 right-0 h-16 border-b border-gray-200 items-center z-10">
       <div
         onClick={props?.toggleDisplaynav}
-        className="ml-2 desktop:hidden h-9 w-9 rounded-full hover:bg-[hsl(216,8%,12%)] active:bg-[#182947] content-center cursor-pointer relative group"
+        className={`ml-2 desktop:hidden h-9 w-9 rounded-full hover:bg-[hsl(216,8%,12%)] active:bg-[#182947] content-center cursor-pointer relative group ${
+          props.displaySidenav && "bg-green-400 hover:bg-green-500"
+        }`}
       >
         <img
           className=" m-auto h-6 w-6 p-1 "

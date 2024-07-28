@@ -16,7 +16,7 @@ const Addcomment = (props: commentType) => {
     <div className="mb-2 mx-2">
       {props.showComment && (
         <div>
-          <div className="flex items-center gap-5 justify-between bg-gray-200 p-2 rounded-md">
+          <div className="flex items-center gap-5 justify-between rounded-md">
             <div className="">
               <img
                 className="w-10 h-10 rounded-full "
@@ -24,16 +24,15 @@ const Addcomment = (props: commentType) => {
                 alt=""
               />
             </div>
-            <div className="max-w-[500px] flex-1">
-              <input
+            <div className="max-w-[500px]   text-black flex-1">
+              <textarea
                 value={props.newcomment}
                 onChange={(e) => props.setnewcomment(e.target.value)}
-                placeholder="comment"
-                className="w-full border p-1 flex-1 rounded-md"
-                type="text"
+                placeholder="Type your text..."
+                className="w-full border p-1 flex-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 resize-none"
               />
             </div>
-            <div className="bg-blue-600 rounded-lg hover:bg-blue-400">
+            <div className="bg-green-600 rounded-lg hover:bg-green-400">
               <button onClick={props.handlecomment} className="text-white p-2 ">
                 Add comment
               </button>
@@ -42,13 +41,13 @@ const Addcomment = (props: commentType) => {
           <div className="mt-4">
             <div>
               {props.comment.map((comments: any) => (
-                <div className="flex gap-5 items-center pb-2 mb-4 border-b ml-10">
+                <div className="flex gap-5 items-center pb-2 mb-4  ml-10">
                   <img
                     className="w-10 h-10 rounded-full"
                     src={user?.photoURL}
                     alt=""
                   />
-                  <p className="break-words tablet:max-w-[300px] desktop:max-w-[500px] mobile:max-w-[370px]">
+                  <p className="break-words tablet:max-w-[300px] desktop:max-w-[500px] mobile:max-w-[370px] bg-[#616060] p-3 rounded-xl">
                     {comments}
                   </p>
                 </div>

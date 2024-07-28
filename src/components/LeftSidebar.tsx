@@ -10,7 +10,7 @@ const LeftSidebar = (props: Sidenavtype) => {
     {
       id: "1",
       name: "Sport",
-      icon: "assets/sport_icon-removebg-preview.png",
+      icon: "public/assets/sport_icon-removebg-preview.png",
       arrowIcon: "assets/arrow_icon-removebg-preview.png",
       expanded: false,
       dropdownLink: [
@@ -87,23 +87,27 @@ const LeftSidebar = (props: Sidenavtype) => {
 
   return (
     <div
-      className={`w-72 desktop:flex p-10 pl-12 flex-col border-r mt-16  bg-white fixed z-0 h-full left-0 overflow-scroll top-0 ${
+      className={`w-72 desktop:flex p-10 pl-12 backdrop-blur-lg flex-col border-r mt-16  fixed z-0 h-full left-0 overflow-scroll top-0 scrollbar ${
         props?.displaySidenav ? "mobile:flex" : "mobile:hidden"
       }`}
     >
       {categories.map((category) => (
         <div key={category.id}>
           <div className="mb-8 border-b">
-            <div className="flex justify-between items-center mb-3 hover:bg-gray-200 cursor-pointer rounded-lg p-2 w-full ">
+            <div className="flex text-white justify-between items-center mb-3 hover:bg-[#313131] cursor-pointer rounded-lg p-2 w-full ">
               <div className="flex gap-2 ">
-                <img className=" h-5 w-6" src={category.icon} alt="" />
+                <img
+                  className=" h-6 w-6 bg-green-400 p-1 rounded-md"
+                  src={category.icon}
+                  alt=""
+                />
                 <div className="">{category.name}</div>
               </div>
 
               <div>
                 <img
                   onClick={() => handleToggle(category.id)}
-                  className={`h-3 w-3 ml-10 flex items-end transition-transform duration-100 cursor-pointer ${
+                  className={`h-3 w-3 ml-10 flex items-end transition-transform duration-100 cursor-pointer invert ${
                     category.expanded && "rotate-180 "
                   }`}
                   src={category.arrowIcon}
@@ -113,11 +117,11 @@ const LeftSidebar = (props: Sidenavtype) => {
             </div>
             <div>
               {category.expanded && (
-                <div className="border-l">
+                <div className="border-l ml-8">
                   {category.dropdownLink.map((dropDownlink) => (
                     <Link
                       to={dropDownlink.link}
-                      className="ml-5 flex flex-col gap-y-2  p-2 transition-transform duration-300 mb-5 hover:bg-gray-200 rounded-lg cursor-pointer"
+                      className=" flex text-white flex-col gap-y-2 pl-4 p-2 transition-transform duration-300 mb-5 hover:bg-[#313131] rounded-lg cursor-pointer"
                     >
                       {dropDownlink.name}
                     </Link>
