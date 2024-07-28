@@ -24,7 +24,7 @@ const Addcomment = (props: commentType) => {
                 alt=""
               />
             </div>
-            <div className="max-w-[500px] text-white flex-1">
+            <div className="max-w-[500px]   text-white flex-1">
               <textarea
                 value={props.newcomment}
                 onChange={(e) => props.setnewcomment(e.target.value)}

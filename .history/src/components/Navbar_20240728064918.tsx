@@ -46,14 +46,14 @@ const Navbar = (props: sideNavtype) => {
       </div>
       <div className="middle-navbar mx-2 max-w-[500px] flex flex-1 ">
         <input
-          className="h-8 w-full px-2 text-md outline-none border rounded-l-lg"
+          className="h-8 w-full px-2 text-md outline-none border rounded-l-md"
           placeholder="Search"
           type="text"
         />
 
-        <div className="rounded-r-lg cursor-pointer h-8 w-10 bg-green-600 hover:bg-green-500">
+        <div className="rounded-r-md h-10 w-10 bg-green-500">
           <img
-            className="items-center h-4 w-4 m-auto mt-2"
+            className="items-center h-6 w-6 m-auto mt-2"
             src="assets/search-icon.png"
             alt=""
           />

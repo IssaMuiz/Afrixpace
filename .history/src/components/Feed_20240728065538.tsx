@@ -35,9 +35,7 @@ const Feed = () => {
               <div className="flex flex-col">
                 <div className="flex gap-2">
                   <p className="font-bold">{feed.name}</p>
-                  <p className="text-green-700 hover:underline font-bold">
-                    Follow
-                  </p>
+                  <p className="text-green-700 hover:underline">Follow</p>
                 </div>
 
                 <p>

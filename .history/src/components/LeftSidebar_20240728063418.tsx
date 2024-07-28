@@ -94,21 +94,19 @@ const LeftSidebar = (props: Sidenavtype) => {
       {categories.map((category) => (
         <div key={category.id}>
           <div className="mb-8 border-b">
-            <div
-              onClick={() => handleToggle(category.id)}
-              className="flex text-white justify-between items-center mb-3 hover:bg-[#1f1e1e] cursor-pointer rounded-lg p-2 w-full "
-            >
+            <div className="flex text-white justify-between items-center mb-3 hover:bg-[#313131] cursor-pointer rounded-lg p-2 w-full ">
               <div className="flex gap-2 ">
                 <img
                   className=" h-6 w-6 bg-green-400 p-1 rounded-md"
                   src={category.icon}
                   alt=""
                 />
-                <div className="font-bold">{category.name}</div>
+                <div className="">{category.name}</div>
               </div>
 
               <div>
                 <img
+                  onClick={() => handleToggle(category.id)}
                   className={`h-3 w-3 ml-10 flex items-end transition-transform duration-100 cursor-pointer invert ${
                     category.expanded && "rotate-180 "
                   }`}
@@ -123,7 +121,7 @@ const LeftSidebar = (props: Sidenavtype) => {
                   {category.dropdownLink.map((dropDownlink) => (
                     <Link
                       to={dropDownlink.link}
-                      className=" flex  text-white flex-col text-sm pl-4 p-1 transition-transform duration-300 mb-5 hover:bg-[#1f1e1e] rounded-lg cursor-pointer"
+                      className=" flex font-bold text-white flex-col gap-y-1 pl-4 p-2 transition-transform duration-300 mb-5 hover:bg-[#313131] rounded-lg cursor-pointer"
                     >
                       {dropDownlink.name}
                     </Link>

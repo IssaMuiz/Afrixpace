@@ -123,7 +123,7 @@ const LeftSidebar = (props: Sidenavtype) => {
                   {category.dropdownLink.map((dropDownlink) => (
                     <Link
                       to={dropDownlink.link}
-                      className=" flex  text-white flex-col text-sm pl-4 p-1 transition-transform duration-300 mb-5 hover:bg-[#1f1e1e] rounded-lg cursor-pointer"
+                      className=" flex  text-white flex-col text-sm pl-4 transition-transform duration-300 mb-5 hover:bg-[#313131] rounded-lg cursor-pointer"
                     >
                       {dropDownlink.name}
                     </Link>

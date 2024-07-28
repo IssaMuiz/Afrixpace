@@ -24,12 +24,12 @@ const Addcomment = (props: commentType) => {
                 alt=""
               />
             </div>
-            <div className="max-w-[500px] text-white flex-1">
+            <div className="max-w-[500px]   text-black flex-1">
               <textarea
                 value={props.newcomment}
                 onChange={(e) => props.setnewcomment(e.target.value)}
                 placeholder="Type your text..."
-                className="w-full border p-1 flex-1 rounded-lg focus:outline-none resize-none bg-[#616060]"
+                className="w-full border p-1 flex-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 resize-none bg-[#3a3939]"
               />
             </div>
             <div className="bg-green-600 rounded-lg hover:bg-green-400">
