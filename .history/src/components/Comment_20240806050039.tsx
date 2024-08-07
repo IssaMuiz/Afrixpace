@@ -1,21 +1,31 @@
-import Addcomment from "./Addcomment";
+/* import Addcomment from "./Addcomment"; */
+import { auth } from "../firebase/firebaseConfig";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 import { useEffect, useState } from "react";
 
-const IconList = () => {
+interface Comment {
+  id: number;
+  text: string;
+}
+const Comment = () => {
+  const [user] = useAuthState(auth);
   const [upvote, setUpvote] = useState(false);
   const [downvote, setDownvote] = useState(false);
   const [voteCount, setVoteCount] = useState(5);
 
   const [showComment, SetShowComment] = useState(false);
-  const [newcomment, setNewcomment] = useState<string>("");
-  const [comment, setComment] = useState<any[]>([]);
+  const [newcomment, setNewcomment] = useState("");
+  const [comment, setComment] = useState<Comment[]>([]);
 
   const handleComment = () => {
-    if (newcomment) {
-      setComment([...comment, newcomment]);
-      setNewcomment("");
-    }
+    if (newcomment.trim() === "") return;
+    const comments: Comment = {
+      id: Date.now(),
+      text: newcomment,
+    };
+    setComment([...comment, comments]);
+    setNewcomment("");
   };
 
   const handleshowComment = () => {
@@ -43,9 +53,20 @@ const IconList = () => {
       setUpvote(false);
     }
   };
+
   useEffect(() => {
-    localStorage.setItem("newcomment", JSON.stringify(newcomment));
-  }, [newcomment]);
+    localStorage.setItem("comment", JSON.stringify(comment));
+    console.log("data set");
+  }, [comment]);
+
+  useEffect(() => {
+    const storedComment = localStorage.getItem("comment");
+    if (storedComment) {
+      setComment(JSON.parse(storedComment));
+    }
+    console.log("data gotten");
+  }, []);
+
   return (
     <div>
       <div className="flex gap-10 mt-2 ml-5 justify-evenly align-center border-b pb-2 mb-3">
@@ -132,16 +153,56 @@ const IconList = () => {
         </div>
       </div>
       <div>
-        <Addcomment
-          showComment={showComment}
-          comment={comment}
-          newcomment={newcomment}
-          handlecomment={handleComment}
-          setnewcomment={setNewcomment}
-        />
+        <div className="mb-2 mx-2">
+          {showComment && (
+            <div>
+              <div className="flex items-center gap-5 justify-between rounded-md">
+                <div className="">
+                  <img
+                    className="w-10 h-10 rounded-full "
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                </div>
+                <div className="max-w-[500px] text-white flex-1">
+                  <textarea
+                    value={newcomment}
+                    onChange={(e) => setNewcomment(e.target.value)}
+                    placeholder="Type your text..."
+                    className="w-full border p-1 flex-1 rounded-lg focus:outline-none resize-none bg-[#616060]"
+                  />
+                </div>
+                <div className="bg-green-600 rounded-lg hover:bg-green-400">
+                  <button onClick={handleComment} className="text-white p-2 ">
+                    Add comment
+                  </button>
+                </div>
+              </div>
+              <div className="mt-4">
+                <div>
+                  {comment.map((comments) => (
+                    <div
+                      key={comments.id}
+                      className="flex gap-5 items-center pb-2 mb-4  ml-10"
+                    >
+                      <img
+                        className="w-10 h-10 rounded-full"
+                        src={user?.photoURL}
+                        alt=""
+                      />
+                      <p className="break-words tablet:max-w-[300px] desktop:max-w-[500px] mobile:max-w-[370px] bg-[#616060] p-3 rounded-xl">
+                        {comments.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
-export default IconList;
+export default Comment;

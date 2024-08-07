@@ -1,0 +1,41 @@
+import Signup from "./components/Signup";
+import CreatePost from "./components/pages/CreatePost";
+import Home from "./components/pages/Home";
+import Login from "./components/pages/Login";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+const App = () => {
+  const menu = [
+    { name: "issa", price: "3" },
+    { name: "muiz", price: "5" },
+    { name: "muyi", price: "23" },
+    { name: "kaosara", price: "43" },
+    { name: "ruka", price: "34" },
+  ];
+  const cashInRegister = 100;
+  const orderQueue = [];
+
+  const addnewPizza = () => {
+    const pizza = {
+      name: "kafaya",
+      price: "0",
+    };
+    menu.push(pizza);
+  };
+  addnewPizza();
+  console.log(menu);
+  return (
+    <BrowserRouter>
+      <div className="text-white">
+        {/* <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="sign-up" element={<Signup />} />
+          <Route path="log-in" element={<Login />} />
+          <Route path="create-post" element={<CreatePost />} />
+        </Routes> */}
+      </div>
+    </BrowserRouter>
+  );
+};
+
+export default App;
